@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestify - Software para qualidade de vida</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showLogin()">Entrar</button>
+                <button class="btn-primary" onclick="showRegisterOptions()">Cadastrar</button>
+            </nav>
+        </header>
+
+        <main class="hero">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="/placeholder.svg?height=400&width=300" alt="Médico sorrindo" class="doctor-image">
+                </div>
+                <div class="hero-text">
+                    <h1>O que você procura hoje?</h1>
+                    <p>Conectamos você aos melhores profissionais de saúde</p>
+                    <button class="btn-cta" onclick="showLogin()">Começar agora</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showLanding()">Voltar</button>
+                <button class="btn-primary" onclick="showRegisterOptions()">Cadastrar</button>
+            </nav>
+        </header>
+
+        <main class="auth-container">
+            <div class="auth-form">
+                <h2>Entrar</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">E-mail ou CPF</label>
+                        <input type="text" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Senha</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    <button type="submit" class="btn-submit">Entrar</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Register Options -->
+    <div id="register-options" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showLanding()">Voltar</button>
+                <button class="btn-primary" onclick="showLogin()">Entrar</button>
+            </nav>
+        </header>
+
+        <main class="register-options-container">
+            <h2>Como você quer se cadastrar?</h2>
+            <div class="register-cards">
+                <div class="register-card" onclick="showRegister('patient')">
+                    <i class="fas fa-user"></i>
+                    <h3>Sou Paciente</h3>
+                    <p>Busco profissionais de saúde</p>
+                </div>
+                <div class="register-card" onclick="showRegister('doctor')">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Sou Médico</h3>
+                    <p>Quero oferecer meus serviços</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Patient Register -->
+    <div id="patient-register" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showRegisterOptions()">Voltar</button>
+                <button class="btn-primary" onclick="showLogin()">Entrar</button>
+            </nav>
+        </header>
+
+        <main class="auth-container">
+            <div class="auth-form">
+                <h2>Registro - Paciente</h2>
+                <form id="patient-register-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient-name">Nome</label>
+                            <input type="text" id="patient-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-surname">Sobrenome</label>
+                            <input type="text" id="patient-surname" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient-cpf">CPF</label>
+                        <input type="text" id="patient-cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient-phone">Telefone</label>
+                        <input type="tel" id="patient-phone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient-email">E-mail</label>
+                        <input type="email" id="patient-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient-password">Senha</label>
+                        <input type="password" id="patient-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient-confirm-password">Confirmar Senha</label>
+                        <input type="password" id="patient-confirm-password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Registrar</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Doctor Register -->
+    <div id="doctor-register" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showRegisterOptions()">Voltar</button>
+                <button class="btn-primary" onclick="showLogin()">Entrar</button>
+            </nav>
+        </header>
+
+        <main class="auth-container">
+            <div class="auth-form">
+                <h2>Registro - Médico</h2>
+                <form id="doctor-register-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="doctor-name">Nome</label>
+                            <input type="text" id="doctor-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor-surname">Sobrenome</label>
+                            <input type="text" id="doctor-surname" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor-cpf">CPF</label>
+                        <input type="text" id="doctor-cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor-crm">CRM</label>
+                        <input type="text" id="doctor-crm" placeholder="CRM/UF 000000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor-specialty">Especialidade</label>
+                        <select id="doctor-specialty" required>
+                            <option value="">Selecione uma especialidade</option>
+                            <option value="clinico-geral">Clínico Geral</option>
+                            <option value="cardiologia">Cardiologia</option>
+                            <option value="dermatologia">Dermatologia</option>
+                            <option value="pediatria">Pediatria</option>
+                            <option value="ginecologia">Ginecologia</option>
+                            <option value="ortopedia">Ortopedia</option>
+                            <option value="psiquiatria">Psiquiatria</option>
+                            <option value="neurologia">Neurologia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor-phone">Telefone</label>
+                        <input type="tel" id="doctor-phone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor-email">E-mail</label>
+                        <input type="email" id="doctor-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor-password">Senha</label>
+                        <input type="password" id="doctor-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctor-confirm-password">Confirmar Senha</label>
+                        <input type="password" id="doctor-confirm-password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Registrar</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <span id="user-welcome"></span>
+                <button class="btn-secondary" onclick="logout()">Sair</button>
+            </nav>
+        </header>
+
+        <main class="dashboard-container">
+            <div id="patient-dashboard" class="dashboard-content">
+                <h2>Bem-vindo ao Gestify</h2>
+                <div class="dashboard-actions">
+                    <button class="action-btn" onclick="showSearch()">
+                        <i class="fas fa-search"></i>
+                        Buscar Médicos
+                    </button>
+                    <button class="action-btn" onclick="showMyAppointments()">
+                        <i class="fas fa-calendar"></i>
+                        Minhas Consultas
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-file-medical"></i>
+                        Histórico Médico
+                    </button>
+                </div>
+                
+                <div id="my-appointments" class="appointments-section" style="display: none;">
+                    <h3>Minhas Consultas</h3>
+                    <div id="appointments-list">
+                        <!-- Appointments will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="doctor-dashboard" class="dashboard-content">
+                <h2>Painel do Médico</h2>
+                <div class="doctor-stats">
+                    <div class="stat-card">
+                        <h3>Consultas Hoje</h3>
+                        <span class="stat-number" id="today-appointments">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total de Pacientes</h3>
+                        <span class="stat-number" id="total-patients">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Avaliação Média</h3>
+                        <span class="stat-number" id="average-rating">0.0 ⭐</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total de Avaliações</h3>
+                        <span class="stat-number" id="total-ratings">0</span>
+                    </div>
+                </div>
+                <div class="quick-actions">
+                    <button class="action-btn" onclick="showDoctorAppointments()">
+                        <i class="fas fa-calendar-check"></i>
+                        Ver Consultas
+                    </button>
+                    <button class="action-btn" onclick="showDoctorRatings()">
+                        <i class="fas fa-star"></i>
+                        Ver Avaliações
+                    </button>
+                    <button class="action-btn" onclick="updateProfile()">
+                        <i class="fas fa-user-edit"></i>
+                        Editar Perfil
+                    </button>
+                </div>
+                
+                <div id="doctor-appointments" class="appointments-section" style="display: none;">
+                    <h3>Minhas Consultas</h3>
+                    <div id="doctor-appointments-list">
+                        <!-- Doctor appointments will be populated here -->
+                    </div>
+                </div>
+                
+                <div id="doctor-ratings" class="ratings-section" style="display: none;">
+                    <h3>Avaliações Recebidas</h3>
+                    <div id="doctor-ratings-list">
+                        <!-- Doctor ratings will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Search Page -->
+    <div id="search-page" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showDashboard()">Voltar</button>
+                <button class="btn-secondary" onclick="logout()">Sair</button>
+            </nav>
+        </header>
+
+        <main class="search-container">
+            <div class="search-form">
+                <h2>Buscar Médicos</h2>
+                <div class="form-group">
+                    <label for="search-specialty">Especialidade</label>
+                    <select id="search-specialty">
+                        <option value="">Todas as especialidades</option>
+                        <option value="clinico-geral">Clínico Geral</option>
+                        <option value="cardiologia">Cardiologia</option>
+                        <option value="dermatologia">Dermatologia</option>
+                        <option value="pediatria">Pediatria</option>
+                        <option value="ginecologia">Ginecologia</option>
+                        <option value="ortopedia">Ortopedia</option>
+                        <option value="psiquiatria">Psiquiatria</option>
+                        <option value="neurologia">Neurologia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="search-location">Localização</label>
+                    <input type="text" id="search-location" placeholder="Digite sua cidade">
+                </div>
+                <button onclick="searchDoctors()" class="btn-submit">Buscar</button>
+            </div>
+
+            <div id="search-results" class="search-results">
+                <!-- Results will be populated here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Doctor Profile Page -->
+    <div id="doctor-profile" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showSearch()">Voltar</button>
+                <button class="btn-secondary" onclick="logout()">Sair</button>
+            </nav>
+        </header>
+
+        <main class="doctor-profile-container">
+            <div id="doctor-profile-content">
+                <!-- Doctor profile content will be populated here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Profile Page -->
+    <div id="edit-profile" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showDashboard()">Voltar</button>
+                <button class="btn-secondary" onclick="logout()">Sair</button>
+            </nav>
+        </header>
+
+        <main class="edit-profile-container">
+            <div id="edit-profile-content">
+                <!-- Edit profile content will be populated here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Appointment Booking Page -->
+    <div id="appointment-booking" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showDoctorProfile()">Voltar</button>
+                <button class="btn-secondary" onclick="logout()">Sair</button>
+            </nav>
+        </header>
+
+        <main class="appointment-container">
+            <div class="appointment-form">
+                <h2>Agendar Consulta</h2>
+                <form id="appointment-form">
+                    <div class="form-group">
+                        <label for="appointment-date">Data</label>
+                        <input type="date" id="appointment-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-time">Horário</label>
+                        <select id="appointment-time" required>
+                            <option value="">Selecione um horário</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-type">Tipo de Consulta</label>
+                        <select id="appointment-type" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="teleconsulta">Teleconsulta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-notes">Observações</label>
+                        <textarea id="appointment-notes" rows="4" placeholder="Descreva seus sintomas ou motivo da consulta"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Agendar Consulta</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Rating Page -->
+    <div id="rating-page" class="page">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>GESTIFY</span>
+            </div>
+            <nav class="nav-buttons">
+                <button class="btn-secondary" onclick="showDashboard()">Voltar</button>
+                <button class="btn-secondary" onclick="logout()">Sair</button>
+            </nav>
+        </header>
+
+        <main class="rating-container">
+            <div class="rating-form">
+                <h2>Avalie sua consulta</h2>
+                <div id="rating-doctor-info">
+                    <!-- Doctor info will be populated here -->
+                </div>
+                <form id="rating-form">
+                    <div class="form-group">
+                        <label>Avaliação</label>
+                        <div class="star-rating">
+                            <span class="star" data-rating="1">⭐</span>
+                            <span class="star" data-rating="2">⭐</span>
+                            <span class="star" data-rating="3">⭐</span>
+                            <span class="star" data-rating="4">⭐</span>
+                            <span class="star" data-rating="5">⭐</span>
+                        </div>
+                        <input type="hidden" id="rating-value" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating-comment">Comentário</label>
+                        <textarea id="rating-comment" rows="4" placeholder="Conte como foi sua experiência"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Avaliação</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
